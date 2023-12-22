@@ -14,6 +14,9 @@ html(lang="en")
                 a(href='/submission') New Submission 
                 a(href='') Toggle Mode
                 a(href='/logout') Sign Out
+                div.winner
+                    h2 Current Winner 
+                        span No Winner Yet
             div.display-section
                 each submission of submissions
                     each user of users
@@ -26,6 +29,15 @@ html(lang="en")
                                 
                                 button Vote
                                 span= ` ${submission.vote_count} vote so far`
-
-        footer
-            span Chork 2024. All rights reserved.
+            div.participants
+                h1 Current Participants 
+                each user of users 
+                    a= `${user.first_name} ${user.last_name}`
+        div.pagination
+            if page >= 2
+                a(href="/?page="+(page-1)) Previous Page
+            span= `Viewing Page ${page}`
+            if submissions.length === 4
+                a(href="/?page="+(page+1)) Next Page
+    footer
+        span Chork 2024. All rights reserved.

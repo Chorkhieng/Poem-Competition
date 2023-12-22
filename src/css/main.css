@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: dodgerblue;
+    margin-bottom: 50px;
 }
 
 .header {
@@ -16,14 +17,14 @@ body {
     padding: 20px;
 }
 
-.menu {
+.menu, .participants {
     flex: 20%;
     display: flex;
     flex-flow: column;
 }
 
 .display-section {
-    flex: 70%;
+    flex: 40%;
 }
 
 .user {
@@ -31,6 +32,13 @@ body {
     white-space: pre-wrap;
     padding: 10px;
     margin-bottom: 10px;
+}
+
+.winner {
+    background-color: aquamarine;
+    border: 1px solid #312c87;
+    padding: 10px;
+    margin: 10px;
 }
 
 a {

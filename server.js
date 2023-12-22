@@ -75,7 +75,15 @@ app.use((req, res, next)=>{
 })
 
 app.get('/', isAuthenticated, (req, res)=>{
-    res.render('homepage.pug', {submissions, users});
+    let page = parseInt(req.query.page ?? 1);
+
+    if (!page) {
+        page = 1;
+    }
+
+    let offset = (page - 1) * 4;
+    let newPosts = submissions.slice(offset, offset + 4);
+    res.render('homepage.pug', {users, submissions:newPosts, page});
 })
 
 
