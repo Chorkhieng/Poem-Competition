@@ -8,23 +8,24 @@ html(lang="en")
     body 
         div.header
             h1 Poem Competition
-            a(href='/') Home 
-            a(href='/submission') New Submission 
-            a(href='') Toggle Mode
-            a(href='/logout') Sign Out
-
-        p The rest of the page for displaying POEMS.
         div.main-body
-            each submission of submissions
-                 each user of users
-                    if submission.author_id == user.user_id
-                        div.user
-                            h2= `${user.first_name} ${user.last_name}`
-                            //- p= `${user.bio}`
-                            p= `${submission.poem_content}`
-                            
-                            button Vote
-                            span= ` ${submission.vote_count} vote so far`
+            div.menu
+                a(href='/') Home 
+                a(href='/submission') New Submission 
+                a(href='') Toggle Mode
+                a(href='/logout') Sign Out
+            div.display-section
+                each submission of submissions
+                    each user of users
+                        if submission.author_id == user.user_id
+                            div.user
+                                h2= `${user.first_name} ${user.last_name}`
+                                //- p= `${user.bio}`
+                                p
+                                    | #{submission.poem_content}
+                                
+                                button Vote
+                                span= ` ${submission.vote_count} vote so far`
 
         footer
             span Chork 2024. All rights reserved.

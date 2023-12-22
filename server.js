@@ -75,7 +75,6 @@ app.use((req, res, next)=>{
 })
 
 app.get('/', isAuthenticated, (req, res)=>{
-    console.log(users)
     res.render('homepage.pug', {submissions, users});
 })
 
