@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Create Account
+    body 
+        div#login-nav
+            p Create a new account with your new username and password below:  
+            form(id="create-form" actioin="/create" method="POST")
+                label(for="first_name") First Name:
+                input(type="text" name="first_name" id="first_name")
+                br
+                label(for="last_name") First Name:
+                input(type="text" name="last_name" id="last_name")
+                br
+                label(for="create_username") Username:
+                input(type="text" name="create_username" id="create_username")
+                br
+                label(for="create_password") Password:
+                input(type="password" name="create_password" id="create_password")
+                br
+                button(type="submit") Create account
+            p Return to login
+            a(class="login-create" href="/login") Login
