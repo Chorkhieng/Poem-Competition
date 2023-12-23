@@ -1,10 +1,7 @@
-doctype html
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Login Page
-    body 
+include header_template
+    title Login Page
+    body
+        include header
         div#login-nav
             form(id="login-form" actioin="/login" method="POST")
                 br
@@ -18,3 +15,4 @@ html(lang="en")
             p Don't have an account yet?
             p Create a new account with your new username and password below:
             a(class="login-create" href="/create") Create
+    include footer

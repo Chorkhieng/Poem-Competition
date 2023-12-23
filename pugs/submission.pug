@@ -1,11 +1,11 @@
-doctype html
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Submission Page
-        link(id="css-mode" rel="stylesheet" href="/css/main.css")
+include header_template
+    title Submission Page
     body
-        form(action='/submit' method='POST')
+        include header
+            a(href='/logout') Sign Out
+        h1 Let's Make an Impression!
+        p Create your new submission by typing the text and then click submit.
+        form(action='/submit' method='POST' class='submission-form')
             textarea(placeholder="Type your poem here." name="poemText")
             button Submit
+    include footer

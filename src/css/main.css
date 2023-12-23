@@ -1,7 +1,8 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: dodgerblue;
+    background-color: rgb(16, 182, 184);
     margin-bottom: 50px;
+    text-align: center;
 }
 
 .header {
@@ -18,13 +19,17 @@ body {
 }
 
 .menu, .participants {
+    border: 1px solid #ccc;
+    margin: 5px;
+    padding: 10px;
+    height: fit-content;
     flex: 20%;
     display: flex;
     flex-flow: column;
 }
 
 .display-section {
-    flex: 40%;
+    flex: 50%;
 }
 
 .user {
@@ -48,6 +53,13 @@ a {
     margin: 5px;
 }
 
+a:hover {
+    background-color: rgb(43, 98, 206);
+    text-decoration: none;
+    padding: 10px;
+    margin: 5px;
+}
+
 textarea {
     width: 80%;
     min-height: 200px;
@@ -55,6 +67,22 @@ textarea {
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 10px;
+}
+
+.submission-form {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    padding: 5px;
+    background-color: #ccc;
+    width: fit-content;
+}
+
+button:hover {
+    color: aliceblue;
+    background-color: #224ab6;
 }
 
 footer {

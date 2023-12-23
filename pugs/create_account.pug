@@ -1,10 +1,7 @@
-doctype html
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Create Account
+include header_template
+    title Create Account
     body 
+        include header
         div#login-nav
             p Create a new account with your new username and password below:  
             form(id="create-form" actioin="/create" method="POST")
@@ -23,3 +20,4 @@ html(lang="en")
                 button(type="submit") Create account
             p Return to login
             a(class="login-create" href="/login") Login
+    include footer

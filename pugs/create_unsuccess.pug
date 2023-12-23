@@ -1,10 +1,8 @@
-doctype html
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Unsuccess Create
-body 
+include header_template
+    title Unsuccess Create
+body
+    include header
     h3 Oops! Something went wrong!
     h3 Can't create new account with this request.
     a(class="login-create" href="/login") Login
+include footer

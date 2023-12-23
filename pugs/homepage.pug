@@ -1,10 +1,4 @@
-doctype html
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Home Page
-        link(id="css-mode" rel="stylesheet" href="/css/main.css")
+include header_template
     body 
         div.header
             h1 Poem Competition
@@ -22,7 +16,11 @@ html(lang="en")
                     each user of users
                         if submission.author_id == user.user_id
                             div.user
-                                h2= `${user.first_name} ${user.last_name}`
+                                if user.first_name || user.last_name
+                                    h2= `${user.first_name} ${user.last_name}`
+                                else
+                                    h2 No Name
+                                hr
                                 //- p= `${user.bio}`
                                 p
                                     | #{submission.poem_content}
@@ -30,14 +28,16 @@ html(lang="en")
                                 button Vote
                                 span= ` ${submission.vote_count} vote so far`
             div.participants
-                h1 Current Participants 
-                each user of users 
-                    a= `${user.first_name} ${user.last_name}`
+                h3 Current Participants 
+                each user of users
+                    if user.first_name || user.last_name
+                        a= `${user.first_name} ${user.last_name}`
+                    else 
+                        a No Name
         div.pagination
             if page >= 2
                 a(href="/?page="+(page-1)) Previous Page
             span= `Viewing Page ${page}`
             if submissions.length === 4
                 a(href="/?page="+(page+1)) Next Page
-    footer
-        span Chork 2024. All rights reserved.
+    include footer
