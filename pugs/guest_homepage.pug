@@ -4,11 +4,10 @@ include header_template
             h1 Poem Competition
         div.main-body
             div.menu
-                a(href='/') Home 
-                a(href='/submission') New Submission
+                a(href='/guest') Home
                 a(href='/rules') Rules
                 a(href='') Toggle Mode
-                a(href='/logout') Sign Out
+                a(href='/login') Sign In
                 
                 div.winner
                     h2 Current Winner 
@@ -26,8 +25,6 @@ include header_template
                                 //- p= `${user.bio}`
                                 p
                                     | #{submission.poem_content}
-                                
-                                button Vote
                                 span= ` ${submission.vote_count} vote so far`
             div.participants
                 h3 Current Participants 

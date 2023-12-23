@@ -1,5 +1,16 @@
 div.header
     h1 Poem Competition
     div
-        a(href='/') Home
+        if isLogin === true
+            a(href='/') Home
+        if !isLogin
+            a(href='/guest') Home
+        a(href='/rules') Rules
         a(href='') Toggle Mode
+        if isLogin === true
+            a(href='/submission') New Submission
+            a(href='/logout') Sign Out 
+        if !isLogin
+            a(href='/guest') View as Guest
+            a(href='/login') Sign In
+        

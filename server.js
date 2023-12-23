@@ -83,13 +83,26 @@ app.get('/', isAuthenticated, (req, res)=>{
 
     let offset = (page - 1) * 4;
     let newPosts = submissions.slice(offset, offset + 4);
-    res.render('homepage.pug', {users, submissions:newPosts, page});
+    res.render('homepage.pug', {users, submissions:newPosts, page, isLogin:req.session.isLogin});
+})
+
+// view as guest
+app.get('/guest', (req, res)=>{
+    let page = parseInt(req.query.page ?? 1);
+
+    if (!page) {
+        page = 1;
+    }
+
+    let offset = (page - 1) * 4;
+    let newPosts = submissions.slice(offset, offset + 4);
+    res.render('guest_homepage.pug', {users, submissions:newPosts, page, isLogin:req.session.isLogin});
 })
 
 
 // login route
 app.get("/login", (req, res)=>{
-    res.render("login.pug");
+    res.render("login.pug", {isLogin:req.session.isLogin});
 })
 
 // check password from database
@@ -153,7 +166,7 @@ app.get("/logout", isAuthenticated, (req, res) => {
 
 // create submission
 app.get('/submission', isAuthenticated, (req, res)=>{
-    res.render('submission.pug');
+    res.render('submission.pug', {isLogin:req.session.isLogin});
 })
 
 app.post('/submit', isAuthenticated, (req, res)=>{
@@ -165,6 +178,11 @@ app.post('/submit', isAuthenticated, (req, res)=>{
         }
     submissions.push(data);
     res.redirect('/');
+})
+
+// rules 
+app.get('/rules', (req, res)=>{
+    res.render('rules.pug', {isLogin:req.session.isLogin});
 })
 
 app.get('/css/main.css', (req, res)=>{
