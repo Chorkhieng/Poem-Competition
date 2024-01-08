@@ -1,8 +1,9 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: rgb(16, 182, 184);
+    background-color: rgb(95, 101, 101);
     margin-bottom: 50px;
     text-align: center;
+    color: beige;
 }
 
 .header {
@@ -26,6 +27,7 @@ body {
     flex: 20%;
     display: flex;
     flex-flow: column;
+    color: rgb(46, 46, 29);
 }
 
 .display-section {
@@ -40,7 +42,7 @@ body {
 }
 
 .winner {
-    background-color: aquamarine;
+    background-color: rgb(86, 93, 90);
     border: 1px solid #312c87;
     padding: 10px;
     margin: 10px;

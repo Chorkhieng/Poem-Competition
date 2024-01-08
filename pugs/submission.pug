@@ -6,5 +6,5 @@ include header_template
         p Create your new submission by typing the text and then click submit.
         form(action='/submit' method='POST' class='submission-form')
             textarea(placeholder="Type your poem here." name="poemText")
-            button Submit
+            button(class='button') Submit
     include footer

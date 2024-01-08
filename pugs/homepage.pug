@@ -7,7 +7,7 @@ include header_template
                 a(href='/') Home 
                 a(href='/submission') New Submission
                 a(href='/rules') Rules
-                a(href='') Toggle Mode
+                button#dark-light Toggle Mode
                 a(href='/logout') Sign Out
                 
                 div.winner
@@ -27,7 +27,7 @@ include header_template
                                 p
                                     | #{submission.poem_content}
                                 
-                                button Vote
+                                button(class='button') Vote
                                 span= ` ${submission.vote_count} vote so far`
             div.participants
                 h3 Current Participants 

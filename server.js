@@ -189,6 +189,10 @@ app.get('/css/main.css', (req, res)=>{
     res.send('main.css');
 })
 
+app.get('/css/main.dark.css', (req, res)=>{
+    res.send('main.dark.css');
+})
+
 // 404 not found page
 app.use((req, res) => {
     res.status(404).render("page_error.pug");
