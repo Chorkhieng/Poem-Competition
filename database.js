@@ -9,6 +9,27 @@ var connPool = mysql.createPool({
     password: "your password",
 });
 
+async function getAllUsers(){
+    return await connPool.awaitQuery('SELECT * FROM users');
+}
 
+async function createUser(first_name, last_name, username, password) {
+    await connPool.awaitQuery('INSERT INTO users (first_name, last_name, username, password) VALUES (?, ?, ?, ?)',
+                                [first_name, last_name, username, password]);
+}
 
-module.exports = {}
+async function createSubmission(userId, text) {
+    await connPool.awaitQuery('INSERT INTO submissions (author_id, poem_content) VALUES (?, ?)',
+                                [userId, text]);
+}
+
+async function getAllSubmissions(){
+    return await connPool.awaitQuery('SELECT * FROM submissions ORDER BY vote_count DESC');
+}
+
+async function updateVoteCount(userId, poemId){
+    await connPool.awaitQuery('UPDATE submissions SET vote_count = (vote_count + ?) WHERE author_id = ? AND poem_id = ?',
+                                [1, userId, poemId]);
+}
+
+module.exports = {getAllUsers, createUser, createSubmission, getAllSubmissions, updateVoteCount}
