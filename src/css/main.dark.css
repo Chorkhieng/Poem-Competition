@@ -88,6 +88,10 @@ button:hover {
     background-color: #224ab6;
 }
 
+input {
+    margin: 2px;
+}
+
 footer {
     background-color: darkgrey;
     margin: 0;
